@@ -1,15 +1,60 @@
-import os, random
+import os, random, json
 import base64
 from datetime import datetime, timezone
 import bleach
 from pydantic import BaseModel
-from deta import Deta
+from pathlib import Path
+from shlex import join
 
+# switch from deta to local
+class Base:
+    def __init__(self, name: str) -> None:
+        self.path = Path(f"data/{name}.json")
+        self.items = json.loads(self.path.read_text(encoding="utf-8"))
 
-deta = Deta()
+    def put(self, data: dict, key: str) -> None:
+        for item in self.items:
+            if item.get("key") == key or item.get("id") == key:
+                item.update(data)
+                item["key"] = key
+                break
+        else:
+            self.items[len(self.items):] = [data]
+            data["key"] = key
 
-notes = deta.Base("knotro_notes")
-drive_notes = deta.Drive("notes")
+        with open(self.path, "w") as f:
+            json.dump(self.items, f, indent=2)
+
+    def get(self, key: str):
+        for item in self.items:
+            if item.get("key") == key or item.get("id") == key:
+                return item
+
+    def fetch(self, query: list) -> list:
+        if query:
+            term = query[0]["name?contains"]
+
+            return [next(
+                item
+                for item in self.items
+                if term in item.get("name", "") or term in item.get("content", "")
+            )]
+        else:
+            return [self.items]
+
+class Drive:
+    def __init__(self, name: str) -> None:
+        self.path = Path(f"data/{name}")
+
+    def put(self, name: str, data):
+        file = self.path.joinpath(name)
+        file.parent.mkdir(parents=True, exist_ok=True)
+        
+        with open(file, "w+") as f:
+            f.write(data)
+
+notes = Base("knotro_notes")
+drive_notes = Drive("notes")
 
 base_url = "/"
 
@@ -35,8 +80,9 @@ def get_all(db, query):
     blobs = []
     for stored_blob in blob_gen:
         for blob in stored_blob:
-            blob["id"] = blob["key"]
-            del blob["key"]
+            if blob.get("key"):
+                blob["id"] = blob["key"]
+                del blob["key"]
             blobs.append(blob)
     return blobs
 
@@ -60,8 +106,7 @@ def urlsafe_key(note_name):
 
 # db operations
 def fetch_notes(term):
-    my_notes = next(notes.fetch(
-        [{"name?contains": term}, {"content?contains": term}]))
+    my_notes = notes.fetch([{"name?contains": term}, {"content?contains": term}])
     links = [d["name"] for d in my_notes]
     return links
 

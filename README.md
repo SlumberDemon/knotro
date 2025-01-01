@@ -2,7 +2,6 @@
 
 ### why
 
-This fork exists because the platform where I initially used knotro has been shut down. With this fork, I aim to revive one of my favourite note-taking apps. Thank you to xeust for creating [knotro](https://github.com/xeust/knotro)!
 In this branch of the fork, you will find a modified version of the original app but with the deta python library replaced by a local solution. Below the new sections is a copy of the original readme.
 
 ### how

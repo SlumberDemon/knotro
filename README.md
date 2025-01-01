@@ -1,5 +1,12 @@
 ## Knotro
 
+## why
+
+This fork exists because the platform where I initially used knotro has been shut down. With this fork, I aim to revive one of my favourite note-taking apps. Thank you to xeust for creating [knotro](https://github.com/xeust/knotro)!
+The master branch includes the original source code. Checkout the different branches for new versions.
+
+---
+
 ### General Info
 
 *Knotro* gives you a "box" of notes. It is a minimal micro-homage to the bi-directional linking in tools like Roam Research, Obsidian, etc.

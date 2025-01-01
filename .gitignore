@@ -4,3 +4,6 @@ playground/.deta/state
 playground/.deta/prog_info
 app/data/*
 __pycache__
+.DS_Store
+.venv
+.ropeproject

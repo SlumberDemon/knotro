@@ -4,7 +4,6 @@ from datetime import datetime, timezone
 import bleach
 from pydantic import BaseModel
 from pathlib import Path
-from shlex import join
 
 # switch from deta to local
 class Base:

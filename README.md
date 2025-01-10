@@ -1,27 +1,22 @@
 ## Knotro
 
-### General Info
+Knotro reimagined as an app! Knotro gives you a "box" of notes. It is minimal and allows for bi-directional linking similar to what apps like Roam Research and Obsidian do.
+> In this branch you will find a desktop app based on knotro. The app uses mainly the frontend code of the original.
 
-*Knotro* gives you a "box" of notes. It is a minimal micro-homage to the bi-directional linking in tools like Roam Research, Obsidian, etc.
+### what
 
+The app includes some new features:
 
-### Deployment / Usage
+- Dark mode
+- Fuzzy search
+- True offline support
 
-Knotro is running on [Deta Space](https://deta.space/discovery/@max/knospace).
+> The ability to share notes is not avalible in the app.
 
-It could, with little modification, be configured to run elsewhere (it's a FastAPI app), but a database is needed.
+### how
 
-### Other Info
+The app has basic [markdown](https://www.markdownguide.org/cheat-sheet/) support. Enter focus mode with `cmd + j` / `cntrl + j` and toggle edit mode with `cmd + i` / `cntrl + i`. To create backlinks, type two brackets around the note name, like this: `[[Note Name]]`.
 
-The `app` directory contains the app
+### future
 
-### Libraries Used
-
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/)
-- [Bleach](https://bleach.readthedocs.io/en/latest/clean.html)
-- [Deta](https://www.deta.sh/)
-- [hyperapp](https://github.com/jorgebucaran/hyperapp)
-- [Showdown](http://showdownjs.com/)
-- [CodeJar](https://github.com/antonmedv/codejar)
-- [highlightjs](https://highlightjs.org/usage/)
+I'm developing a few more useful features and quality improvements that I'm planning to release soon. Any changes and features I make will maintain the original's minimal aesthetic.

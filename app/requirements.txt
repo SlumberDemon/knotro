@@ -1,6 +1,0 @@
-bleach
-deta==0.9
-fastapi
-Jinja2
-aiofiles
-uvicorn

@@ -3,6 +3,8 @@
 Knotro reimagined as an app! Knotro gives you a "box" of notes. It is minimal and allows for bi-directional linking similar to what apps like Roam Research and Obsidian do.
 > In this branch you will find a desktop app based on knotro. The app uses mainly the frontend code of the original.
 
+![showcase macos dark](showcase-macos-dark.png)
+
 ### what
 
 The app includes some new features:

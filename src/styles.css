@@ -40,6 +40,7 @@ body {
     margin: 0px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 a {
@@ -83,6 +84,12 @@ a:hover {
 .lc {
     height: calc(100% - 144px);
     overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.lc::-webkit-scrollbar {
+    display: none;
 }
 
 .lcp {
@@ -93,7 +100,14 @@ a:hover {
 .rc {
     height: calc(100% - 48px);
     overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
+
+.rc::-webkit-scrollbar {
+    display: none;
+}
+
 .right-pane {
     border-left: 1px solid var(--border);
     box-sizing: border-box;

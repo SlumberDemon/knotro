@@ -1234,7 +1234,7 @@ const KeydownHandler = (state, event) => {
 };
 
 const initState = {
-  view: "VIEW",
+  view: "EDIT",
   note: {
     name: "Loading",
     content: "Loading...",

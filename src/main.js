@@ -649,7 +649,7 @@ const ControlModule = (state, type) => {
           let note = await getNote(state.controls.ADD.inputValue);
           if (note) {
             window.location.replace(
-              `${window.location.origin}/#${state.controls.ADD.inputValue}`,
+              `${window.location.origin}#${state.controls.ADD.inputValue}`,
             );
             window.location.reload();
           }
@@ -986,7 +986,6 @@ const leftOpen = (props) => {
   return h("div", { class: "side-pane left-pane" }, [
     h("div", {
       class: "drag-area",
-      title: "Move window",
       "data-tauri-drag-region": "",
     }),
     h("div", { class: "control-wrap" }, [

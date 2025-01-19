@@ -7,6 +7,9 @@
     "core:default",
     "core:window:allow-start-dragging",
     "sql:default",
-    "sql:allow-execute"
+    "sql:allow-execute",
+    "dialog:default",
+    "fs:default",
+    "fs:allow-read"
   ]
 }

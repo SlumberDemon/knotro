@@ -30,7 +30,9 @@
 }
 
 body {
-    font-family: "Inter", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
+        helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial,
+        sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     line-height: 1.5;

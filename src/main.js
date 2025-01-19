@@ -1,4 +1,8 @@
 import { h, text, app } from "https://cdn.skypack.dev/hyperapp";
+
+const { readTextFile } = window.__TAURI__.fs;
+const { basename } = window.__TAURI__.path;
+const { open } = window.__TAURI__.dialog;
 const { invoke } = window.__TAURI__.core;
 const Database = window.__TAURI__.sql;
 
@@ -548,6 +552,41 @@ const ToggleFocusMode = (state) => {
     },
   };
   return [newState, [renderIcons]];
+};
+
+const OpenFile = async (state) => {
+  const file = await open({
+    multiple: false,
+    directory: false,
+    filters: [{ name: "Extension", extensions: ["md"] }],
+  });
+
+  if (file) {
+    const text = await readTextFile(file);
+    const rawName = await basename(file);
+    const name = rawName.replace(/\.md$/, "");
+    const content = await invoke("sanitize_html", {
+      text,
+    });
+
+    const note = await db.select(
+      "INSERT INTO notes (name, content, links, backlinks, last_modified, recent_index, base_url, id, recent_notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9); SELECT * FROM notes WHERE name = $1",
+      [
+        name,
+        content,
+        [],
+        [],
+        new Date().toUTCString(),
+        new Date().getTime(),
+        "/",
+        urlsafe_key(name),
+        [],
+      ],
+    );
+
+    window.location.replace(`${window.location.origin}#${name}`);
+    window.location.reload();
+  }
 };
 
 const UncollapseAndFocus = (state, type = "") => {
@@ -1227,6 +1266,8 @@ const KeydownHandler = (state, event) => {
       return ToggleView(state);
     } else if (event.key === "j") {
       return ToggleFocusMode(state);
+    } else if (event.key == "o") {
+      return OpenFile(state);
     }
   }
   return [state, [renderIcons]];

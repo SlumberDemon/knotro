@@ -569,8 +569,8 @@ const OpenFile = async (state) => {
       text,
     });
 
-    const note = await db.select(
-      "INSERT INTO notes (name, content, links, backlinks, last_modified, recent_index, base_url, id, recent_notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9); SELECT * FROM notes WHERE name = $1",
+    await db.execute(
+      "INSERT INTO notes (name, content, links, backlinks, last_modified, recent_index, base_url, id, recent_notes) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)",
       [
         name,
         content,

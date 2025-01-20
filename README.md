@@ -11,13 +11,20 @@ The app includes some new features:
 
 - Dark mode
 - Fuzzy search
+- Import .md files
 - True offline support
 
 > The ability to share notes is not avalible in the app.
 
 ### how
 
-The app has basic [markdown](https://www.markdownguide.org/cheat-sheet/) support. Enter focus mode with `cmd + j` / `cntrl + j` and toggle edit mode with `cmd + i` / `cntrl + i`. To create backlinks, type two brackets around the note name, like this: `[[Note Name]]`.
+The app has basic [markdown](https://www.markdownguide.org/cheat-sheet/) support. To create backlinks, type two brackets around the note name, like this: `[[Note Name]]`.
+
+#### keybinds
+
+- `cmd + j` / `ctrl + j` : Toggle focus mode
+- `cmd + i` / `ctrl + i` : Switch between view and edit mode
+- `cmd + o` / `ctrl + o` : Add markdown file as note
 
 ### future
 

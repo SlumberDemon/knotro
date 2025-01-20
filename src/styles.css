@@ -88,6 +88,8 @@ a:hover {
     overflow-y: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .lc::-webkit-scrollbar {
@@ -104,6 +106,8 @@ a:hover {
     overflow-y: auto;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .rc::-webkit-scrollbar {
@@ -147,6 +151,8 @@ a:hover {
     height: 40px;
     border-top: 1px solid var(--border);
     box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* /* control panel, Add, Search */
@@ -314,6 +320,8 @@ a.toggle-link:hover {
         monospace;
     border-top: 1px solid var(--border);
     box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .link-num-dec-collapsed {
@@ -394,17 +402,6 @@ a.toggle-link:hover {
     margin-bottom: 4px;
     width: 100%;
     overflow-y: auto;
-}
-
-/* kntro.com tag */
-.knotro-wrap {
-    padding-left: 12px;
-    height: 24px;
-    font-size: 14px;
-    font-family:
-        Roboto Mono,
-        Courier,
-        monospace;
 }
 
 /* last edited */

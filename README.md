@@ -1,34 +1,37 @@
 ## Knotro
 
-### why
+Knotro reimagined as an app! Knotro gives you a "box" of notes. It is minimal and allows for bi-directional linking similar to what apps like Roam Research and Obsidian do.
+> In this branch you will find a desktop app based on knotro. The app uses mainly the frontend code of the original.
 
-This fork exists because the platform where I initially used knotro has been shut down. With this fork, I aim to revive one of my favourite note-taking apps. Thank you to xeust for creating [knotro](https://github.com/xeust/knotro)!
-The master branch includes the original source code. Checkout the different branches for new versions.
+| ![showcase macos dark](showcase/showcase-macos-dark.png) | ![showcase linux dark](showcase/showcase-linux-dark.png) | ![showcase windows dark](showcase/showcase-windows-dark.png) |
+| --- | --- | --- |
 
----
+### install
 
-### General Info
+Currently there is no releases, meaning you will need to build from source.
+Learn more about how to build a tauri app [here](https://tauri.app/distribute/).
+The app has been tested on macos, linux and windows!
+I'll create releases once I've fixed more bugs and made small tweaks.
 
-*Knotro* gives you a "box" of notes. It is a minimal micro-homage to the bi-directional linking in tools like Roam Research, Obsidian, etc.
+### what
 
+The app includes some new features:
 
-### Deployment / Usage
+- Dark mode
+- Fuzzy search
+- Import .md files
+- True offline support
 
-Knotro is running on [Deta Space](https://deta.space/discovery/@max/knospace).
+### how
 
-It could, with little modification, be configured to run elsewhere (it's a FastAPI app), but a database is needed.
+The app has basic [markdown](https://www.markdownguide.org/cheat-sheet/) support. To create backlinks, type two brackets around the note name, like this: `[[Note Name]]`.
 
-### Other Info
+#### keybinds
 
-The `app` directory contains the app
+- `cmd + j` / `ctrl + j` : Toggle focus mode
+- `cmd + i` / `ctrl + i` : Switch between view and edit mode
+- `cmd + o` / `ctrl + o` : Add markdown file as note
 
-### Libraries Used
+### future
 
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/)
-- [Bleach](https://bleach.readthedocs.io/en/latest/clean.html)
-- [Deta](https://www.deta.sh/)
-- [hyperapp](https://github.com/jorgebucaran/hyperapp)
-- [Showdown](http://showdownjs.com/)
-- [CodeJar](https://github.com/antonmedv/codejar)
-- [highlightjs](https://highlightjs.org/usage/)
+I'm developing a few more useful features and quality improvements that I'm planning to release soon. Any changes and features I make will maintain the original's minimal aesthetic.

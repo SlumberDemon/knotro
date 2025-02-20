@@ -22,8 +22,6 @@ The app includes some new features:
 - Import .md files
 - True offline support
 
-> The ability to share notes is not avalible in the app.
-
 ### how
 
 The app has basic [markdown](https://www.markdownguide.org/cheat-sheet/) support. To create backlinks, type two brackets around the note name, like this: `[[Note Name]]`.

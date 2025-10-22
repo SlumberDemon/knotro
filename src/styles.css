@@ -1,4 +1,12 @@
-@import url("https://fonts.bunny.net/css?family=inter:300");
+@font-face {
+    font-family: "Inter";
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+    src:
+        local("Inter"),
+        url("https://fonts.bunny.net/inter@v13/inter-300.woff2") format("woff2");
+}
 
 :root {
     --body: #ffffff;
@@ -30,9 +38,9 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-        helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial,
-        sans-serif;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica,
+        "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     line-height: 1.5;
@@ -215,9 +223,9 @@ a:hover {
     border-color: var(--font-secondary) !important;
     background-color: var(--panes);
     outline: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-        helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial,
-        sans-serif;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica,
+        "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
     font-size: 16px;
     border-width: 0 0 1px;
     width: calc(100% - 64px);
@@ -264,9 +272,9 @@ a:hover {
 
 .toggle-title {
     display: flex;
-    font-family: -apple-system, BlinkMacSystemFont, "avenir next", avenir,
-        helvetica, "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial,
-        sans-serif;
+    font-family:
+        -apple-system, BlinkMacSystemFont, "avenir next", avenir, helvetica,
+        "helvetica neue", ubuntu, roboto, noto, "segoe ui", arial, sans-serif;
     align-items: center;
     height: 50px;
     font-size: 24px;

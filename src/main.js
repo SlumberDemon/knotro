@@ -1,4 +1,4 @@
-import { h, text, app } from "https://cdn.skypack.dev/hyperapp";
+import { h, text, app } from "./static/hyperapp.js";
 
 const { readTextFile } = window.__TAURI__.fs;
 const { basename } = window.__TAURI__.path;
@@ -125,6 +125,7 @@ const getNote = async (name) => {
       [recent, response[0].id],
     );
 
+    console.log("Content from DB:", note[0].content);
     return {
       ...note[0],
       links: JSON.parse(note[0].links),
@@ -291,6 +292,7 @@ const focusInput = (dispatch, options) => {
 };
 
 const attachCodeJar = (dispatch, options) => {
+  console.log("attachCodeJar - received content:", options.content);
   requestAnimationFrame(() => {
     let timeout = null;
     var container = document.getElementById("container");
@@ -325,15 +327,18 @@ const attachCodeJar = (dispatch, options) => {
   });
 };
 
-const attachMarkdown = (dispatch, options) => {
+const attachMarkdown = async (dispatch, options) => {
   const { rawMD, uniqueLinks } = options;
 
   const convertedMarkdown = linkSub(rawMD, uniqueLinks);
   const html = converter.makeHtml(convertedMarkdown);
+  const sanitizedHtml = await invoke("sanitize_html", {
+    text: html,
+  });
   // console.log(html);
   requestAnimationFrame(() => {
     const container = document.getElementById("container");
-    container.innerHTML = html;
+    container.innerHTML = sanitizedHtml;
   });
 };
 
@@ -470,6 +475,7 @@ const SetStatus = (state, status) => {
 };
 
 const Edit = (state) => {
+  console.log("Edit mode - content from state:", state.note.content);
   const newState = {
     ...state,
     view: "EDIT",
